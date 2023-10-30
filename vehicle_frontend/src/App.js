@@ -7,8 +7,8 @@ function App() {
       <header className="App-header">
         <h1>Vehicle Analysis Unit</h1>
         <div className="logos">
-          <img src="/images/mcac_logo.png" alt="MCAC Logo" className="logo"/>
-          <img src="/images/msp_logo_trans.png" alt="MSP Logo" className="logo"/>
+        <img src={process.env.PUBLIC_URL + '/images/mcac_logo.png'} alt="MCAC Logo" className="logo"/>
+        <img src={process.env.PUBLIC_URL + '/images/msp_logo_trans.png'} alt="MSP Logo" className="logo"/>
         </div>
       </header>
       <main className="App-content">
