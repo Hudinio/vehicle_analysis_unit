@@ -225,6 +225,8 @@ hr {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  overflow: hidden; /* This will hide anything that overflows the boundaries of the card */
+
 }
 
 .vehicle-title {
@@ -243,6 +245,7 @@ hr {
   justify-content: center; /* Center the images horizontally */
   gap: 10px; /* Provide equal spacing between the images */
   margin-top: 20px; /* Space above the image container */
+  grid-auto-rows: minmax(250px, auto); /* This sets a min-height of 250px for each card */
 }
 
 .vehicle-image-placeholder {
@@ -266,11 +269,13 @@ hr {
 }
 
 .image-box {
-  flex: 0 0 100px;
+  width: 100px;
   height: 60px;
+  object-fit: cover;
   background-color: #f3f3f3; /* Placeholder background color */
   border: 1px dashed #ccc; /* Dashed border to indicate it's a placeholder */
   display: inline-block;
+  flex: 0 0 auto;
 }
 
 /* Hide default scrollbar and add custom styling */

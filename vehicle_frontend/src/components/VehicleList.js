@@ -10,6 +10,7 @@ function VehicleList() {
         const fetchData = async () => {
             try {
                 const response = await axios.get('http://127.0.0.1:8000/api/vehicles/');
+                //const response = await axios.get('http://hudinio.pythonanywhere.com/api/get_vehicles');
                 setVehicles(response.data);
             } catch (error) {
                 console.error("Error fetching data:", error);
@@ -47,18 +48,27 @@ function VehicleList() {
     // Log the filtered vehicles
     console.log("Filtered Vehicles:", filteredVehicles);
     
+    // const constructImagePath = (vehicle) => {
+    //     return `O:/Criminal Investigative Support Division/TAB/For Joe Pyle/Vehicle Analysis Images/${vehicle.Make}/${vehicle.Model}/${vehicle.Year}/${vehicle.Trim}/`;
+    // }
+
     const constructImagePath = (vehicle) => {
-        return `O:/Criminal Investigative Support Division/TAB/For Joe Pyle/Vehicle Analysis Images/${vehicle.Make}/${vehicle.Model}/${vehicle.Year}/${vehicle.Trim}/`;
+        return `http://127.0.0.1:8000/static/Vehicle Analysis Images/${vehicle.Make}/${vehicle.Model}/${vehicle.Year}/${vehicle.Trim}/`;
     }
+    
 
     const handleImageError = (event) => {
         event.target.style.display = 'none'; // Hide the broken image icon
         event.target.nextSibling.style.display = 'block'; // Show the placeholder box
     }
 
+    const resetSearchCriteria = () => {
+        setSearchCriteria({});
+    };
+
     return (
         <div>
-            <SearchBar onSearch={handleSearch} />
+            <SearchBar onSearch={handleSearch} onReset={resetSearchCriteria} />
             <div className="vehicle-card-container">
             {filteredVehicles
             .sort((a, b) => {

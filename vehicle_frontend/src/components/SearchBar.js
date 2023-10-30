@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
-function SearchBar({ onSearch }) {
+function SearchBar({ onSearch, onReset }) {
     const [makes, setMakes] = useState([]);
     const [models, setModels] = useState([]);
     const [trims, setTrims] = useState([]);
@@ -66,6 +66,7 @@ function SearchBar({ onSearch }) {
             const fetchData = async () => {
                 try {
                     const response = await axios.get('http://127.0.0.1:8000/api/vehicles/');
+                    // const response = await axios.get('http://hudinio.pythonanywhere.com/api/get_vehicles');
                     const data = response.data;
                     setAllData(data);
             
@@ -173,6 +174,7 @@ function SearchBar({ onSearch }) {
         });
         setModels([]);
         setTrims([]);
+        onReset();
     };
     
     
