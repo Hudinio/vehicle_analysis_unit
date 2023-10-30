@@ -1,0 +1,342 @@
+.App {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+}
+  
+.App-header {
+  background-color: rgba(17, 43, 67, 1);
+  padding: 20px;
+  color: white;
+  display: flex;
+  justify-content: space-between; /* positions the title and logos on opposite sides */
+  align-items: center; /* vertically centers the title and logos */
+  padding-right: 20px; /* space from the right border of the page */
+}
+
+.logos {
+  display: flex;
+  gap: 20px;  /* Gap between the two logos */
+  justify-content: flex-end;  /* Pushes the logos to the far right of the container */
+  padding-right: 20px;  /* 20px gap between the rightmost logo and the right border of the page */
+}
+
+
+.logo {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;  /* Ensures the aspect ratio of the image is maintained */
+}
+
+
+.App-content {
+  padding: 20px;
+}
+  
+.App-footer {
+  background-color: rgba(17, 43, 67, 1);
+  padding: 10px 0;
+  color: white;
+  /* position: fixed; */
+  width: 100%;
+  bottom: 0;
+  font-size: .75em;
+}
+
+/* General dropdown styling */
+select {
+  padding: 10px;
+  margin: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+  transition: all 0.3s ease-in-out;
+  min-width: 275px;
+  max-width: 95%;
+}
+
+select:focus {
+  border-color: #007BFF; /* Change as per your color scheme */
+  box-shadow: 0 0 10px #007BFF; /* Change as per your color scheme */
+}
+
+/* Disabled dropdown styling */
+select:disabled {
+  background-color: #f3f3f3;
+  cursor: not-allowed;
+}
+
+/* Search Area Layout */
+
+.search-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px; /* Spacing between groups */
+  width: 80%; /* set the width to 80% of its parent container */
+  margin: 0 auto; /* center the container */
+  border: 1px solid #d4d4d4; /* slight border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* subtle drop shadow */
+  padding: 20px; /* give some space inside the container */
+  border-radius: 5px; /* optional, for rounded corners */
+}
+
+.group {
+  display: flex;
+  gap: 20px; /* Spacing between dropdowns within a group */
+  flex-wrap: wrap; /* Allow wrapping if there's not enough space */
+  background-color: #f7f7f7; /* subtle background color */
+  padding: 15px; /* increased padding */
+  border: 1px solid #e0e0e0; /* subtle border */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* slight box shadow */
+  margin: 10px 0; /* margin between subsections */
+  border-radius: 5px; /* rounded corners */
+}
+
+.group.basic-info {
+  display: flex;
+  justify-content: center;
+  align-items: center; /* for vertical alignment */
+  flex-wrap: wrap; /* allows the items to wrap to the next row if there's not enough space */
+  gap: 20px; /* provides space between the flex items */
+}
+
+.group h3 {
+  width: 100%; /* Ensure the heading takes the full width */
+  margin-bottom: 5px; /* Space below the heading */
+}
+
+/* Two-column layout for Vehicle Rear Details and Vehicle Front Details */
+.rear-details, .branding, .additional-features {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start; /* Aligns the content of each column at the top */
+  gap: 20px;
+}
+
+.front-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* Align content to the top */
+  gap: 20px;
+}
+
+/* Nested columns inside Vehicle Rear Details */
+.rear-details .detail-section:nth-child(odd), .rear-details .detail-section:nth-child(even) {
+  width: 48%;
+}
+
+/* Stacked dropdowns in Vehicle Front Details */
+.front-details select {
+  display: block; /* ensures each dropdown takes its own line */
+  margin: 5px 0; /* vertical spacing */
+}
+
+/* Two-column layout for Branding and Additional Features */
+.branding, .additional-features {
+  display: flex;
+  flex-direction: column; /* Stack children vertically */
+  align-items: center; /* Center children horizontally */
+  width: 48%;
+  gap: 10px; /* Space between items */
+}
+
+.vehicle-details-container, .branding-additional-container {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.detail-section {
+  flex-basis: calc(50% - 10px); /* Assumes 20px gap; subtracts half of it to make sure the elements fit perfectly */
+}
+
+/* Layout control for left and right sections */
+.detail-section.left-section {
+  order: 1; /* Left sections come first */
+}
+
+.detail-section.right-section {
+  order: 2; /* Right sections come second */
+}
+
+/*Button Styling */
+button {
+  padding: 10px 20px;
+  margin: 20px auto;
+  border: none;
+  border-radius: 4px;
+  background-color: #007BFF; /* Change as per your color scheme */
+  color: white;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  width: 200px;
+}
+
+button:hover {
+  background-color: #0056b3; /* Slightly darker shade */
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;  /* Optional: To add some space above the buttons */
+}
+
+hr {
+  width: 80%;   /* Change this value to control the width of the line */
+  border: 0;
+  height: 1px;  /* Change this value to control the height/thickness of the line */
+  background-color: #e0e0e0;  /* Change this value to control the color of the line */
+  margin-top: 20px;  /* Adjust the space above the line */
+  margin-bottom: 20px;  /* Adjust the space below the line */
+}
+
+/* Card Styles */
+.vehicle-card-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* 1 card by default */
+  grid-gap: 20px;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+
+/* For screens wider than 600px */
+@media (min-width: 600px) {
+  .vehicle-card-container {
+      grid-template-columns: repeat(2, 1fr); /* 2 cards */
+  }
+}
+
+/* For screens wider than 900px */
+@media (min-width: 900px) {
+  .vehicle-card-container {
+      grid-template-columns: repeat(3, 1fr); /* 3 cards */
+  }
+}
+
+
+.vehicle-card {
+  border: 1px solid #e0e0e0;
+  padding: 20px;
+  margin: 20px 0;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.vehicle-title {
+  font-size: 1.3em;
+  margin-bottom: 10px;
+}
+
+.details-group {
+  margin: 5px 0 0 10px;
+}
+
+.vehicle-image-container {
+  display: flex; /* Set the display property to flex for horizontal alignment */
+  width: 100%;
+  overflow-x: auto;
+  justify-content: center; /* Center the images horizontally */
+  gap: 10px; /* Provide equal spacing between the images */
+  margin-top: 20px; /* Space above the image container */
+}
+
+.vehicle-image-placeholder {
+  flex: 0 0 100px;
+  height: 60px;
+  background-color: #f3f3f3; /* Placeholder background color */
+  border: 1px dashed #ccc; /* Dashed border to indicate it's a placeholder */
+  display: inline-block;
+}
+
+/* Image Carousel Styles */
+.image-carousel {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px; 
+  padding: 10px 0;
+  margin-top: 10px;
+  white-space: nowrap;
+  scrollbar-width: thin; /* Style the scrollbar */
+  scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+.image-box {
+  flex: 0 0 100px;
+  height: 60px;
+  background-color: #f3f3f3; /* Placeholder background color */
+  border: 1px dashed #ccc; /* Dashed border to indicate it's a placeholder */
+  display: inline-block;
+}
+
+/* Hide default scrollbar and add custom styling */
+.image-carousel::-webkit-scrollbar {
+  height: 8px;
+  width: 6px;
+}
+
+.image-carousel::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 4px;
+}
+
+.image-carousel::-webkit-scrollbar-track {
+  background-color: #f1f1f1;
+}
+
+
+/* Responsive design for narrow screens */
+@media (max-width: 768px) {
+  .rear-details, .front-details, .branding, .additional-features, .group {
+    flex-direction: column; /* Stack children vertically */
+    align-items: center; /* Center children horizontally */
+    width: 100%; /* Take the full width */
+    gap: 15px; /* Add some space between stacked items */
+  }
+
+  .rear-details .detail-section, 
+  .branding select, 
+  .additional-features select, 
+  .group select, 
+  .front-details select {
+    width: 100%; /* Ensure every detail section and select takes the full width */
+    margin: 5px 0; /* Ensure some vertical margin */
+  }
+
+  .rear-details .detail-section:nth-child(odd), 
+  .rear-details .detail-section:nth-child(even) {
+    width: 100%; /* Set width to 100% for narrow screens */
+  }
+  
+  .detail-section {
+    flex-direction: column; /* Stack children of detail section vertically */
+    align-items: center; /* Center children horizontally */
+    gap: 10px; /* Add some space between stacked items inside detail section */
+  }
+
+  .vehicle-details-container, .branding-additional-container {
+    flex-direction: column;
+  }
+
+  .group h3, .detail-section h5 {
+    margin-bottom: 5px; /* Adjust the space below headings */
+  }
+}
+
+/* Media query to handle specific breakpoint where overlap occurs */
+@media (max-width: 1150px) {
+  .rear-details .detail-section {
+    padding: 0 5px; /* Add a little padding */
+  }
+
+  .rear-details .detail-section:nth-child(odd),
+  .rear-details .detail-section:nth-child(even) {
+    width: 49%; /* Adjust width slightly to prevent overlap */
+  }
+}
+
+
