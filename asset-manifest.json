@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/vehicle_analysis_unit/static/css/main.6fc6235e.css",
-    "main.js": "/vehicle_analysis_unit/static/js/main.62c7348c.js",
+    "main.js": "/vehicle_analysis_unit/static/js/main.84b7071b.js",
     "static/js/787.a53e591c.chunk.js": "/vehicle_analysis_unit/static/js/787.a53e591c.chunk.js",
     "index.html": "/vehicle_analysis_unit/index.html",
     "main.6fc6235e.css.map": "/vehicle_analysis_unit/static/css/main.6fc6235e.css.map",
-    "main.62c7348c.js.map": "/vehicle_analysis_unit/static/js/main.62c7348c.js.map",
+    "main.84b7071b.js.map": "/vehicle_analysis_unit/static/js/main.84b7071b.js.map",
     "787.a53e591c.chunk.js.map": "/vehicle_analysis_unit/static/js/787.a53e591c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.6fc6235e.css",
-    "static/js/main.62c7348c.js"
+    "static/js/main.84b7071b.js"
   ]
 }
